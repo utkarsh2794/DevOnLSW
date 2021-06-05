@@ -1,7 +1,11 @@
 {
     "/api/*": {
-        "target": "http://95.211.111.66:4300/",
+        "target": "http://95.211.111.66:4300",
         "secure": false,
-        "logLevel": "debug"
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/http://95.211.111.66:4300": "http://95.211.111.66:4300"
+        }
     }
 }

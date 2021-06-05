@@ -15,13 +15,13 @@ export class ServerUtilityService {
   
     public get(url,header = [],apiTimeout?) : Observable<any> {
         let headers = new HttpHeaders();
-        let timeout = apiTimeout ? apiTimeout : this.WAITTIME;
+        let time = apiTimeout ? apiTimeout : this.WAITTIME;
 
         const options = { headers: headers, withCredentials: true};
         return this.http
                     .get(url,options)
                     .pipe(
-                        timeout(timeout),
+                        timeout(time),
                         catchError(error => {return throwError(error)})
                     );
     }
