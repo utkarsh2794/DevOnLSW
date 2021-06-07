@@ -1,0 +1,23 @@
+[
+  {
+    "hdd": { "memory": "2", "count": "2", "unit": "TB", "type": "SATA2" },
+    "location": "AmsterdamAMS-01",
+    "model": "Dell R210Intel Xeon X3440",
+    "price": { "currency": "EUR", "currencySymbol": "€", "amountCents": 4999 },
+    "ram": { "memory": "16", "unit": "GB", "type": "DDR3" }
+  },
+  {
+    "hdd": { "memory": "2", "count": "8", "unit": "TB", "type": "SATA2" },
+    "location": "AmsterdamAMS-01",
+    "model": "HP DL180G62x Intel Xeon E5620",
+    "price": { "currency": "EUR", "currencySymbol": "€", "amountCents": 11900 },
+    "ram": { "memory": "32", "unit": "GB", "type": "DDR3" }
+  },
+  {
+    "hdd": { "memory": "2", "count": "8", "unit": "TB", "type": "SATA2" },
+    "location": "AmsterdamAMS-01",
+    "model": "HP DL380eG82x Intel Xeon E5-2420",
+    "price": { "currency": "EUR", "currencySymbol": "€", "amountCents": 13199 },
+    "ram": { "memory": "32", "unit": "GB", "type": "DDR3" }
+  }
+]

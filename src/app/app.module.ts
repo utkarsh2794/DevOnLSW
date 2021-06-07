@@ -7,6 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServersComponent } from './core/components/servers/servers.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +28,15 @@ import { MatTableModule } from '@angular/material/table';
     AppRoutingModule,
     HttpClientModule,
     MatTableModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSliderModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
