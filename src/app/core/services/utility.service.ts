@@ -4,13 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UtilityService {
-
   constructor() {}
 
-  getCheckboxTypeValue(commaSepereatedString:string){
-      return commaSepereatedString.split(',').map((val) => {
-        return { name: val, isChecked: false };
-      });
+  getCheckboxTypeValue(
+    commaSepereatedString: string
+  ): { name: string; isChecked: boolean }[] {
+    return commaSepereatedString.split(',').map((val) => {
+      return { name: val, isChecked: false };
+    });
   }
- 
 }

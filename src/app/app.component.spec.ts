@@ -8,9 +8,7 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [AppComponent],
       providers: [HttpClientModule],
-      imports: [
-        HttpClientModule,FormsModule 
-    ],
+      imports: [HttpClientModule, FormsModule],
     }).compileComponents();
   });
 

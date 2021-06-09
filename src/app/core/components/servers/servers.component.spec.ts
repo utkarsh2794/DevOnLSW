@@ -14,7 +14,7 @@ describe('ServersComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ServersComponent],
       providers: [ServersModel, ServerUtilityService, HttpClientModule],
-      imports: [HttpClientModule,FormsModule]
+      imports: [HttpClientModule, FormsModule],
     }).compileComponents();
   });
 

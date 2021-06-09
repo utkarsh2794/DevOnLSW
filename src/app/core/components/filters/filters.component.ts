@@ -34,7 +34,7 @@ export class FiltersComponent implements OnInit {
 
   formatLabel = (value: number) => {
     return this.RangeValues[value];
-  };
+  }
 
   rangeChange(event: MatSliderChange): void {
     this.pramasObject.storageMax = this.convertToGB(
