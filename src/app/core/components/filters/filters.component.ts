@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
 import { ServersModel } from '../../models/servers.model';
+import { UtilityService } from '../../services/utility.service';
 import { ApiParams } from '../../types/server.types';
 
 @Component({
@@ -16,15 +17,9 @@ export class FiltersComponent implements OnInit {
     '0, 250GB, 500GB, 1TB, 2TB, 3TB, 4TB, 8TB, 12TB, 24TB, 48TB, 72TB'.split(
       ', '
     );
-  checkboxValuesRAM = '2GB,4GB,8GB,12GB,16GB,24GB,32GB,48GB,64GB,96GB'
-    .split(',')
-    .map(val => {
-      return { name: val, isChecked: false };
-    });
+  checkboxValuesRAM = this.utility.getCheckboxTypeValue('2GB,4GB,8GB,12GB,16GB,24GB,32GB,48GB,64GB,96GB');
 
-  checkboxValuesHDD = 'SAS,SATA,SSD'.split(',').map((val) => {
-    return { name: val, isChecked: false };
-  });
+  checkboxValuesHDD = this.utility.getCheckboxTypeValue('SAS,SATA,SSD');
 
   pramasObject: ApiParams = {
     hdd: null,
@@ -33,13 +28,13 @@ export class FiltersComponent implements OnInit {
     storageMax: this.RangeValues[this.RangeValues.length - 1],
     storageMin: this.RangeValues[0],
   };
-  constructor() {}
+  constructor(private utility: UtilityService) {}
 
   ngOnInit(): void {}
 
   formatLabel = (value: number) => {
     return this.RangeValues[value];
-  }
+  };
 
   rangeChange(event: MatSliderChange): void {
     this.pramasObject.storageMax = this.convertToGB(
@@ -85,7 +80,7 @@ export class FiltersComponent implements OnInit {
     return inGB.toString();
   }
 
-  callWithParams():void {
+  callWithParams(): void {
     this.filterChange.emit(this.pramasObject);
   }
 }

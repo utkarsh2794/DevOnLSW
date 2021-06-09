@@ -23,7 +23,7 @@
       <span class="example-list-section">
         <ul>
           <li *ngFor="let hdd of checkboxValuesHDD">
-            <mat-checkbox
+            <mat-checkbox name="hddCheckbox" 
               [(ngModel)]="hdd.isChecked"
               (ngModelChange)="updateHDD()"
             >
@@ -36,7 +36,7 @@
       <span class="example-list-section">
         <ul>
           <li *ngFor="let ram of checkboxValuesRAM">
-            <mat-checkbox
+            <mat-checkbox name="ramCheckbox" 
               [(ngModel)]="ram.isChecked"
               (ngModelChange)="updateRam($event)"
             >

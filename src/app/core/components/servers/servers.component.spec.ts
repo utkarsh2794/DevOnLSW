@@ -1,4 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { ServersModel } from '../../models/servers.model';
+import { ServerUtilityService } from '../../services/server-utility.services';
 
 import { ServersComponent } from './servers.component';
 
@@ -8,9 +12,10 @@ describe('ServersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ServersComponent ]
-    })
-    .compileComponents();
+      declarations: [ServersComponent],
+      providers: [ServersModel, ServerUtilityService, HttpClientModule],
+      imports: [HttpClientModule,FormsModule]
+    }).compileComponents();
   });
 
   beforeEach(() => {

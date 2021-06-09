@@ -28,12 +28,11 @@ export class ServersComponent implements OnInit, OnDestroy, AfterViewInit {
   );
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  private _subscription: Subscription;
+  private subscription: Subscription;
 
   constructor(private model: ServersModel) {}
-  
   ngOnInit(): void {
-    this._subscription = this.model.getServers().subscribe((value) => {
+    this.subscription = this.model.getServers().subscribe((value) => {
       this.successCallback(value.servers);
     });
   }
@@ -69,6 +68,6 @@ export class ServersComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy(): void {
-    this._subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }
