@@ -51,7 +51,7 @@ export class ServersModel {
         params = params.append('ram', apiParams.ram);
       }
     }
-    return this.serverUtility.get(environment.URL + '/api/servers', [], params);
+    return this.serverUtility.get(environment.URL + '/api/servers', params);
   }
 }
 

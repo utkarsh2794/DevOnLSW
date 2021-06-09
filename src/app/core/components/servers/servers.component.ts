@@ -6,6 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSliderChange } from '@angular/material/slider';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
@@ -21,6 +22,7 @@ import { ServersModel, ServerType, ApiParams } from './servers.model';
 export class ServersComponent implements OnInit, OnDestroy, AfterViewInit {
   displayedColumns: string[] = ['location', 'model'];
   data: ServerType[];
+  panelOpenState = false;
 
   dataSource: MatTableDataSource<ServerType[]> = new MatTableDataSource<any>(
     []
@@ -79,20 +81,17 @@ export class ServersComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   formatLabel = (value: number) => {
-    console.log(value);
-    this.pramasObject.storageMax = this.convertToGB(this.RangeValues[value]);
     return this.RangeValues[value];
   }
 
-  rangeChange(value): void {
-    this.pramasObject.storageMax = this.convertToGB(this.RangeValues[value]);
+  rangeChange(event: MatSliderChange): void {
+    this.pramasObject.storageMax = this.convertToGB(this.RangeValues[event.value]);
     this.callWithParams();
   }
 
   updateHDD(): void {
     const names = this.reduceName(this.checkboxValuesHDD);
     this.pramasObject.hdd = names.length ? names.join(',') : null;
-    console.log(this.pramasObject.hdd);
     this.callWithParams();
   }
 
@@ -101,7 +100,6 @@ export class ServersComponent implements OnInit, OnDestroy, AfterViewInit {
     this.pramasObject.ram = names.length
       ? names.map(this.convertToGB).join(',')
       : null;
-    console.log(this.pramasObject.ram);
     this.callWithParams();
   }
 

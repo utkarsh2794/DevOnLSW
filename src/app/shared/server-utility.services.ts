@@ -17,7 +17,6 @@ export class ServerUtilityService {
 
   public get(
     url,
-    header: HttpHeaders,
     apiParams?,
     apiTimeout?
   ): Observable<any> {
