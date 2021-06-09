@@ -25,7 +25,7 @@ export class FiltersComponent implements OnInit {
     hdd: null,
     location: null,
     ram: null,
-    storageMax: this.RangeValues[this.RangeValues.length - 1],
+    storageMax: this.convertToGB(this.RangeValues[this.RangeValues.length - 1]),
     storageMin: this.RangeValues[0],
   };
   constructor(private utility: UtilityService) {}
