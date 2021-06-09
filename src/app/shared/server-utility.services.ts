@@ -15,11 +15,20 @@ export class ServerUtilityService {
 
   constructor(public http: HttpClient) {}
 
-  public get(url, header = [], params?, apiTimeout?): Observable<any> {
-    let headers = new HttpHeaders();
-    let time = apiTimeout ? apiTimeout : this.WAITTIME;
+  public get(
+    url,
+    header: HttpHeaders,
+    apiParams?,
+    apiTimeout?
+  ): Observable<any> {
+    const apiHeaders = new HttpHeaders();
+    const time = apiTimeout ? apiTimeout : this.WAITTIME;
 
-    const options = { headers: headers, withCredentials: true, params: params };
+    const options = {
+      headers: apiHeaders,
+      withCredentials: true,
+      params: apiParams,
+    };
     return this.http.get(url, options).pipe(
       timeout(time),
       catchError((error) => {
