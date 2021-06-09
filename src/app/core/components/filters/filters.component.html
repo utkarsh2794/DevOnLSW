@@ -1,0 +1,50 @@
+<mat-accordion>
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title> Filters </mat-panel-title>
+      <mat-panel-description>
+        Server Filters are {{ panelOpenState ? "open" : "closed" }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="Filter">
+      <h2 class="ml-10">Range:</h2>
+      <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        min="0"
+        max="11"
+        value="11"
+        (change)="rangeChange($event)"
+      ></mat-slider>
+      <h2 class="ml-10">HDD:</h2>
+      <span class="example-list-section">
+        <ul>
+          <li *ngFor="let hdd of checkboxValuesHDD">
+            <mat-checkbox
+              [(ngModel)]="hdd.isChecked"
+              (ngModelChange)="updateHDD()"
+            >
+              {{ hdd.name }}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </span>
+      <h2 class="ml-10">Ram:</h2>
+      <span class="example-list-section">
+        <ul>
+          <li *ngFor="let ram of checkboxValuesRAM">
+            <mat-checkbox
+              [(ngModel)]="ram.isChecked"
+              (ngModelChange)="updateRam($event)"
+            >
+              {{ ram.name }}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </span>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

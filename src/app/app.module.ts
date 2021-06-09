@@ -16,12 +16,11 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
-
 import { FormsModule } from '@angular/forms';
-
+import { FiltersComponent } from './core/components/filters/filters.component';
 
 @NgModule({
-  declarations: [AppComponent, ServersComponent],
+  declarations: [AppComponent, ServersComponent, FiltersComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -36,7 +35,7 @@ import { FormsModule } from '@angular/forms';
     MatSliderModule,
     MatExpansionModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
